@@ -49,6 +49,24 @@ class Synth {
 		uint8_t timerBFreq;
 		uint8_t vals_DT1[NUM_CHANNELS][OPERATORS_PER_CHANNEL];
 		uint8_t vals_MUL[NUM_CHANNELS][OPERATORS_PER_CHANNEL];
+		uint8_t vals_TL[NUM_CHANNELS][OPERATORS_PER_CHANNEL];
+		uint8_t vals_RS[NUM_CHANNELS][OPERATORS_PER_CHANNEL];
+		uint8_t vals_AR[NUM_CHANNELS][OPERATORS_PER_CHANNEL];
+		bool vals_AM[NUM_CHANNELS][OPERATORS_PER_CHANNEL];
+		uint8_t vals_D1R[NUM_CHANNELS][OPERATORS_PER_CHANNEL];
+		uint8_t vals_D2R[NUM_CHANNELS][OPERATORS_PER_CHANNEL];
+		uint8_t vals_D1L[NUM_CHANNELS][OPERATORS_PER_CHANNEL];
+		uint8_t vals_RR[NUM_CHANNELS][OPERATORS_PER_CHANNEL];
+		uint8_t vals_SSG_EG[NUM_CHANNELS][OPERATORS_PER_CHANNEL];
+		uint8_t vals_BLOCK[NUM_CHANNELS];
+		uint16_t vals_FREQ[NUM_CHANNELS];
+		uint8_t vals_FDBCK[NUM_CHANNELS];
+		uint8_t vals_ALG[NUM_CHANNELS];
+		bool vals_L_OUT[NUM_CHANNELS];
+		bool vals_R_OUT[NUM_CHANNELS];
+		uint8_t vals_AMS[NUM_CHANNELS];
+		uint8_t vals_FMS[NUM_CHANNELS];
+
 	public:
 		Synth();
 		int turnMidiNoteOn(uint8_t note, uint8_t vel);
@@ -93,6 +111,116 @@ class Synth {
 		// Sets MUL of a particular operator on all channels
 		int setMultipleAll(uint8_t val, uint8_t op);
 
+		// Sets TL of a particular operator on a given channel
+		int setTotalLevel(uint8_t val, uint8_t op, uint8_t channel);
+
+		// Sets TL of a particular operator on all channels
+		int setTotalLevelAll(uint8_t val, uint8_t op);
+
+		// Sets RS of a particular operator on a given channel
+		int setRateScaling(uint8_t val, uint8_t op, uint8_t channel);
+
+		// Sets RS of a particular operator on all channels
+		int setRateScalingAll(uint8_t val, uint8_t op);
+
+		// Sets AR of a particular operator on a given channel
+		int setAttackRate(uint8_t val, uint8_t op, uint8_t channel);
+
+		// Sets AR of a particular operator on all channels
+		int setAttackRateAll(uint8_t val, uint8_t op);
+
+		// Enables AM of a particular operator on a given channel
+		int enableAmpMod(uint8_t op, uint8_t channel);
+
+		// Disables AM of a particular operator on a given channel
+		int disableAmpMod(uint8_t op, uint8_t channel);
+
+		// Enables AM of a particular operator on all channels
+		int enableAmpModAll(uint8_t op);
+
+		// Disables AM of a particular operator on all channels
+		int disableAmpModAll(uint8_t op);
+
+		// Sets D1R of a particular operator on a given channel
+		int setDecayRate1(uint8_t val, uint8_t op, uint8_t channel);
+
+		// Sets D1R of a particular operator on all channels
+		int setDecayRate1All(uint8_t val, uint8_t op);
+
+		// Sets D2R of a particular operator on a given channel
+		int setDecayRate2(uint8_t val, uint8_t op, uint8_t channel);
+
+		// Sets D2R of a particular operator on all channels
+		int setDecayRate2All(uint8_t val, uint8_t op);
+
+		// Sets D1L of a particular operator on a given channel
+		int setAmp2(uint8_t val, uint8_t op, uint8_t channel);
+
+		// Sets D1L of a particular operator on all channels
+		int setAmp2All(uint8_t val, uint8_t op);
+
+		// Sets RR of a particular operator on a given channel
+		int setReleaseRate(uint8_t val, uint8_t op, uint8_t channel);
+
+		// Sets RR of a particular operator on all channels
+		int setReleaseRateAll(uint8_t val, uint8_t op);
+
+		// Set SSG-EG of a particular operator on a given channel
+		int setSSGEG(uint8_t val, uint8_t op, uint8_t channel);
+
+		// Sets SSG-EG of a particular operator on all channels
+		int setSSGEGAll(uint8_t val, uint8_t op);
+
+		// Sets the frequency and block number of a given channel
+		int setFrequency(uint8_t block, uint16_t frequency, uint8_t channel);
+
+		// Sets the feedback of a given channel
+		int setFeedback(uint8_t val, uint8_t channel);
+
+		// Sets the feedback of all channels
+		int setFeedbackAll(uint8_t val);
+
+		// Sets the algorithm of a given channel
+		int setAlgorithm(uint8_t val, uint8_t channel);
+
+		// Sets the algorithm of all channels
+		int setAlgorithmAll(uint8_t val);
+
+		// Enables left output for a given channel
+		int enableLeft(uint8_t channel);
+
+		// Disables left output for a given channel
+		int disableLeft(uint8_t channel);
+
+		// Enables right output for a given channel
+		int enableRight(uint8_t channel);
+
+		// Disables right output for a given channel
+		int disableRight(uint8_t channel);
+
+		// Enables left output for all channels
+		int enableLeftAll();
+
+		// Disables left output for all channels
+		int disableLeftAll();
+
+		// Enables right output for all channels
+		int enableRightAll();
+
+		// Disables right output for all channels
+		int disableRightAll();
+
+		// Sets AMS for a given channel
+		int setAmpModSens(uint8_t val, uint8_t channel);
+
+		// Sets FMS for a given channel
+		int setFreqModSens(uint8_t val, uint8_t channel);
+
+		// Sets AMS for all channels
+		int setAmpModSensAll(uint8_t val);
+
+		// Sets FMS for all channels
+		int setFreqModSensAll(uint8_t val);
 };
 
 

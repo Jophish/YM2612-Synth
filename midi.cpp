@@ -11,6 +11,7 @@ midiMessage::midiMessage() {
 }
 
 bool midiMessage::addByte(uint8_t byte) {
+
 	if (msgReady) {
 		midiMessages[nextIndex] = byte;
 		msgReady = false;

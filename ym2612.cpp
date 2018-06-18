@@ -15,6 +15,7 @@ void writeYM(uint8_t data) {
 // Writes a byte to the appropriate register in the YM2612
 void set_reg(uint8_t reg, uint8_t data) {
   YM_CTRL_PORT &= ~_BV(YM_A0); // A0 low (select register)
+  YM_CTRL_PORT &= ~_BV(YM_A1);
   writeYM(reg);
   YM_CTRL_PORT |= _BV(YM_A0);  // A0 high (write register)
   writeYM(data);

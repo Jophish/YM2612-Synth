@@ -9,6 +9,9 @@
 #define MIDI_BAUD 31250
 
 #define MIDI_NOTE_ON 0x9
+#define MIDI_NOTE_OFF 0x8
+#define MIDI_TIMING 0xF8
+
 class midiMessage {
 	private:
 		static const Note noteArray[NOTES_PER_OCTAVE];
