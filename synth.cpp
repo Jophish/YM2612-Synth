@@ -24,7 +24,7 @@
  	lfoEnable = false;
 
  	Serial1.begin(MIDI_BAUD);
- 	//Serial.begin(9600);`
+ 	//Serial.begin(9600);
  	/* YM2612 Test code */ 
   //set_reg(0x22, 0x00); // LFO off
   	disableLFO();
@@ -240,11 +240,14 @@ int Synth::processMidi() {
 	//sprintf(buffer, "Got MIDI message: 0x%02x 0x%02x 0x%02x\n", midiData.getByte(0), midiData.getByte(1), midiData.getByte(2));
 	//Serial.print(buffer);
 	uint8_t commandByte = midiData.getByte(0);
-	switch (commandByte >> 4) {
+	switch (commandByte & 0xF0) {
 		case (MIDI_NOTE_ON):
 			if (checkChannel(commandByte))
 				turnMidiNoteOn(midiData.getByte(1), midiData.getByte(2));
 			break;
+		case (MIDI_NOTE_OFF):
+			if (checkChannel(commandByte))
+				turnMidiNoteOff(midiData.getByte(1));
 		default:
 			break;
 	}
