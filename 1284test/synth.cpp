@@ -25,7 +25,7 @@
 
  	Serial1.begin(MIDI_BAUD);
  	//Serial.begin(9600);
- 	/* YM2612 Test code */ 
+ 	/* YM2612 Test code */
   //set_reg(0x22, 0x00); // LFO off
   	disableLFO();
   //set_reg(0x27, 0x00); // Note off (channel 0)
@@ -71,7 +71,7 @@
   //set_reg(0x58, 0x5F); //
   	setAttackRateAll(0x1F, 2);
   	setRateScalingAll(0x1, 2);
-  //set_reg(0x5C, 0x94); // RS/AR 
+  //set_reg(0x5C, 0x94); // RS/AR
   	setAttackRateAll(0x14, 3);
   	setRateScalingAll(0x2, 3);
   //set_reg(0x60, 0x05); //
@@ -222,7 +222,7 @@ uint16_t Synth::noteToFreqVal(Note note) {
 		case (NOTE_A):
 			return FREQ_A;
 		case (NOTE_A_SHARP):
-			return FREQ_A_SHARP;
+			return FREQ_A_SHARP;  
 		case (NOTE_B):
 			return FREQ_B;
 	}
